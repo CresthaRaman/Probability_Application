@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiac Health Analytics – Statistical Analysis Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="nav-icon">&#9829;</span>
+            <span>Cardiac Health Analytics</span>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#unit1">Unit 1</a></li>
+            <li><a href="#unit2">Unit 2</a></li>
+            <li><a href="#unit3">Unit 3</a></li>
+            <li><a href="#unit4">Unit 4</a></li>
+            <li><a href="#unit5">Unit 5</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span class="theme-icon">&#9790;</span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Cardiac Health</span>
+                <span class="title-line accent">Analytics Dashboard</span>
+            </h1>
+            <p class="hero-subtitle">A comprehensive probability &amp; statistics analysis of synthetic cardiac patient data covering descriptive statistics, probability distributions, hypothesis testing, regression analysis, and quality control.</p>
+            <div class="hero-stats">
+                <div class="hero-stat" data-count="600">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Patients</span>
+                </div>
+                <div class="hero-stat" data-count="11">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Features</span>
+                </div>
+                <div class="hero-stat" data-count="5">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Analysis Units</span>
+                </div>
+                <div class="hero-stat" data-count="25">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Visualizations</span>
+                </div>
+            </div>
+            <a href="#overview" class="cta-button">Explore Analysis &darr;</a>
+        </div>
+    </section>
+
+    <!-- Dataset Overview -->
+    <section class="section" id="overview">
+        <div class="container">
+            <h2 class="section-title">Dataset Overview</h2>
+            <p class="section-desc">A synthetic cardiac-health dataset with 600 patients and 11 clinical features, generated using clinically motivated probability distributions.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#128200;</div>
+                    <h3>Age</h3>
+                    <p>Patient age (29–78 years)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128147;</div>
+                    <h3>Resting BP</h3>
+                    <p>Blood pressure at rest (mmHg)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#129656;</div>
+                    <h3>Cholesterol</h3>
+                    <p>Serum cholesterol (mg/dL)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128153;</div>
+                    <h3>Max Heart Rate</h3>
+                    <p>Max HR during exercise (bpm)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9878;</div>
+                    <h3>BMI</h3>
+                    <p>Body Mass Index</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128684;</div>
+                    <h3>Smoking Status</h3>
+                    <p>Never / Former / Current</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9889;</div>
+                    <h3>Exercise Angina</h3>
+                    <p>Exercise-induced chest pain</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128201;</div>
+                    <h3>Oldpeak (ST Depression)</h3>
+                    <p>ST segment depression value</p>
+                </div>
+            </div>
+
+            <div class="overview-charts">
+                <div class="chart-panel">
+                    <h3>Diagnosis Distribution</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="diagnosisChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-panel">
+                    <h3>Feature Correlation with Heart Disease</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="featureImportanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit 1: Descriptive Statistics & Probability -->
+    <section class="section section-alt" id="unit1">
+        <div class="container">
+            <div class="unit-header">
+                <span class="unit-badge">Unit 1</span>
+                <h2 class="section-title">Descriptive Statistics & Probability</h2>
+                <p class="section-desc">Central tendency, variability measures, and probability laws applied to cardiac screening scenarios.</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h4>Mean Resting BP</h4>
+                    <span class="stat-value">126.0 mmHg</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Disease Prevalence</h4>
+                    <span class="stat-value">11.0%</span>
+                </div>
+                <div class="stat-card">
+                    <h4>P(HD | HighBP)</h4>
+                    <span class="stat-value">0.629</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Bayes P(HD|HighBP)</h4>
+                    <span class="stat-value">0.629</span>
+                </div>
+            </div>
+
+            <div class="prob-laws-container">
+                <h3>Probability Laws – Cardiac Screening</h3>
+                <div class="interactive-chart-container wide">
+                    <canvas id="probLawsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-gallery">
+                <div class="gallery-item" data-chart="charts/01_diagnosis_distribution.png" data-title="Diagnosis Distribution – Count & Proportion">
+                    <img src="charts/01_diagnosis_distribution.png" alt="Diagnosis Distribution" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Click to enlarge</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-chart="charts/02_histograms_by_diagnosis.png" data-title="Feature Histograms by Diagnosis">
+                    <img src="charts/02_histograms_by_diagnosis.png" alt="Histograms by Diagnosis" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Click to enlarge</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-chart="charts/03_violin_plots.png" data-title="Violin Plots – Distribution Shape by Diagnosis">
+                    <img src="charts/03_violin_plots.png" alt="Violin Plots" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Click to enlarge</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-chart="charts/04_boxplots_by_diagnosis.png" data-title="Box Plots – Outlier Detection by Diagnosis">
+                    <img src="charts/04_boxplots_by_diagnosis.png" alt="Box Plots" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Click to enlarge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit 2: Distributions & Sampling -->
+    <section class="section" id="unit2">
+        <div class="container">
+            <div class="unit-header">
+                <span class="unit-badge">Unit 2</span>
+                <h2 class="section-title">Distributions & Sampling</h2>
+                <p class="section-desc">Named probability distributions with cardiac parameters and Central Limit Theorem demonstration.</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h4>Binomial P(X&le;4)</h4>
+                    <span class="stat-value">0.438</span>
+                    <span class="stat-sub">n=12, p=0.40</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Poisson P(X=3)</h4>
+                    <span class="stat-value">0.195</span>
+                    <span class="stat-sub">&mu;=4.0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Normal P(BP&lt;140)</h4>
+                    <span class="stat-value">0.711</span>
+                    <span class="stat-sub">&mu;=130, &sigma;=18</span>
+                </div>
+                <div class="stat-card">
+                    <h4>CLT Std Error</h4>
+                    <span class="stat-value">9.27</span>
+                    <span class="stat-sub">Theoretical SE</span>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="chart-panel">
+                    <h3>Distribution Probabilities</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="distProbChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-panel">
+                    <h3>Central Limit Theorem</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="cltChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-gallery">
+                <div class="gallery-item" data-chart="charts/15_kde_overlays.png" data-title="KDE Overlays – Healthy vs Disease">
+                    <img src="charts/15_kde_overlays.png" alt="KDE Overlays" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/17_clt_illustration.png" data-title="CLT – Population vs Sampling Distribution">
+                    <img src="charts/17_clt_illustration.png" alt="CLT Illustration" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/05_pairplot.png" data-title="Pair Plot – Feature Relationships">
+                    <img src="charts/05_pairplot.png" alt="Pair Plot" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/16_qq_plots.png" data-title="Q-Q Plots – Normality Assessment">
+                    <img src="charts/16_qq_plots.png" alt="QQ Plots" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit 3: Estimation & Hypothesis Testing -->
+    <section class="section section-alt" id="unit3">
+        <div class="container">
+            <div class="unit-header">
+                <span class="unit-badge">Unit 3</span>
+                <h2 class="section-title">Estimation & Hypothesis Testing</h2>
+                <p class="section-desc">Point estimates, confidence intervals, and six hypothesis tests (parametric &amp; non-parametric).</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h4>Mean BP (95% CI)</h4>
+                    <span class="stat-value">[124.8, 127.3]</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Disease Prop CI</h4>
+                    <span class="stat-value">[0.085, 0.135]</span>
+                </div>
+                <div class="stat-card">
+                    <h4>2-Sample t (p)</h4>
+                    <span class="stat-value">0.0003</span>
+                    <span class="stat-sub reject">Reject H0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Shapiro Normality</h4>
+                    <span class="stat-value">p = 0.056</span>
+                    <span class="stat-sub accept">Fail to reject H0</span>
+                </div>
+            </div>
+
+            <div class="chart-panel full-width">
+                <h3>Hypothesis Test Results</h3>
+                <div class="interactive-chart-container wide">
+                    <canvas id="hypothesisChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-gallery">
+                <div class="gallery-item" data-chart="charts/18_confidence_intervals.png" data-title="Confidence Interval Visualization">
+                    <img src="charts/18_confidence_intervals.png" alt="Confidence Intervals" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/19_hypothesis_tests.png" data-title="Hypothesis Test P-Values">
+                    <img src="charts/19_hypothesis_tests.png" alt="Hypothesis Tests" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/07_age_analysis.png" data-title="Age Distribution & Disease Rate">
+                    <img src="charts/07_age_analysis.png" alt="Age Analysis" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/09_sex_comparison.png" data-title="Sex-Based Risk Comparison">
+                    <img src="charts/09_sex_comparison.png" alt="Sex Comparison" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit 4: Regression & Correlation -->
+    <section class="section" id="unit4">
+        <div class="container">
+            <div class="unit-header">
+                <span class="unit-badge">Unit 4</span>
+                <h2 class="section-title">Regression & Correlation</h2>
+                <p class="section-desc">Pearson correlation, simple OLS regression, multiple regression with ANOVA decomposition.</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h4>Pearson r (BP vs Chol)</h4>
+                    <span class="stat-value">0.085</span>
+                    <span class="stat-sub">p = 0.037</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Simple R&sup2;</h4>
+                    <span class="stat-value">0.024</span>
+                    <span class="stat-sub">Cholesterol ~ Age</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Multiple R&sup2;</h4>
+                    <span class="stat-value">0.034</span>
+                    <span class="stat-sub">4 predictors</span>
+                </div>
+                <div class="stat-card">
+                    <h4>F-statistic</h4>
+                    <span class="stat-value">5.31</span>
+                    <span class="stat-sub">p = 0.0003</span>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="chart-panel">
+                    <h3>ANOVA Decomposition (SST = SSR + SSE)</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="anovaChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-panel">
+                    <h3>Regression Coefficients</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="coefChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-gallery">
+                <div class="gallery-item" data-chart="charts/06_heatmap_correlations.png" data-title="Correlation Heatmap">
+                    <img src="charts/06_heatmap_correlations.png" alt="Correlation Heatmap" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/10_scatter_bp_cholesterol.png" data-title="BP vs Cholesterol with Regression">
+                    <img src="charts/10_scatter_bp_cholesterol.png" alt="BP vs Cholesterol" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/20_regression_diagnostics.png" data-title="Regression Diagnostics">
+                    <img src="charts/20_regression_diagnostics.png" alt="Regression Diagnostics" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/21_regression_coefficients.png" data-title="Coefficient Estimates with CIs">
+                    <img src="charts/21_regression_coefficients.png" alt="Regression Coefficients" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/11_scatter_age_heartrate.png" data-title="Age vs Max Heart Rate">
+                    <img src="charts/11_scatter_age_heartrate.png" alt="Age vs Heart Rate" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/13_scatter_bmi_oldpeak.png" data-title="BMI vs Oldpeak (Bubble: Age)">
+                    <img src="charts/13_scatter_bmi_oldpeak.png" alt="BMI vs Oldpeak" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit 5: Quality Control -->
+    <section class="section section-alt" id="unit5">
+        <div class="container">
+            <div class="unit-header">
+                <span class="unit-badge">Unit 5</span>
+                <h2 class="section-title">Quality Control</h2>
+                <p class="section-desc">Statistical process control with X-bar/R charts, P-charts, and Six Sigma metrics for cardiac outcomes.</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h4>X-bar Center Line</h4>
+                    <span class="stat-value">126.0</span>
+                    <span class="stat-sub">Resting BP</span>
+                </div>
+                <div class="stat-card">
+                    <h4>UCL / LCL</h4>
+                    <span class="stat-value">146.2 / 105.8</span>
+                </div>
+                <div class="stat-card">
+                    <h4>DPMO</h4>
+                    <span class="stat-value">110,000</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Sigma Level</h4>
+                    <span class="stat-value">0.96</span>
+                    <span class="stat-sub">Approx.</span>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="chart-panel">
+                    <h3>P-Chart Control Limits</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="pChartInteractive"></canvas>
+                    </div>
+                </div>
+                <div class="chart-panel">
+                    <h3>Six Sigma Dashboard</h3>
+                    <div class="interactive-chart-container">
+                        <canvas id="sigmaGauge"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-gallery">
+                <div class="gallery-item" data-chart="charts/22_xbar_r_charts.png" data-title="X-bar & R Control Charts">
+                    <img src="charts/22_xbar_r_charts.png" alt="X-bar R Charts" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/23_p_chart.png" data-title="P-Chart – Disease Rate Monitoring">
+                    <img src="charts/23_p_chart.png" alt="P Chart" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/24_six_sigma_dashboard.png" data-title="Six Sigma Summary">
+                    <img src="charts/24_six_sigma_dashboard.png" alt="Six Sigma" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/25_feature_importance.png" data-title="Feature Importance – Correlation with Target">
+                    <img src="charts/25_feature_importance.png" alt="Feature Importance" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/08_smoking_analysis.png" data-title="Smoking Status Analysis">
+                    <img src="charts/08_smoking_analysis.png" alt="Smoking Analysis" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+                <div class="gallery-item" data-chart="charts/14_angina_analysis.png" data-title="Exercise Angina Impact">
+                    <img src="charts/14_angina_analysis.png" alt="Angina Analysis" loading="lazy">
+                    <div class="gallery-overlay"><span>Click to enlarge</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Cardiac Health Analytics &mdash; Probability &amp; Statistics Project</p>
+            <p class="footer-sub">Built with Python, NumPy, SciPy, Statsmodels, Matplotlib, Seaborn &amp; Chart.js</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <h3 class="lightbox-title" id="lightboxTitle"></h3>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
